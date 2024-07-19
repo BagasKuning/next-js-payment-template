@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 
 let snap = new Midtrans.Snap({
     isProduction: false,
-    serverKey: process.env.SECRET,
+    serverKey: process.env.NEXT_PUBLIC_SERV,
     clientKey: process.env.NEXT_PUBLIC_CLIENT
 })
 
@@ -30,15 +30,4 @@ export async function POST(request) {
         return NextResponse.json({ error: "Internal Server Error" }, { status: 500 });
     }
 
-}
-
-export async function GET(res) {
-    try{
-        return NextResponse.json({ message: 'Test get data' })
-    } catch (err){
-        return NextResponse.json({
-            message: err,
-            special_message: "errorrrrr cyukkk"
-        })
-    }
 }
